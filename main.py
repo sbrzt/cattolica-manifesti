@@ -1,8 +1,10 @@
-from src.process import extract_xmp_data
+# main.py
+
+from src.process import extract_paradata
 
 
 def main():
-    print(extract_xmp_data("data/process/1_BNS3560/1_BNS3560_imp.xmp", "data/process/1_BNS3560/1_BNS3560_proc.xmp"))
+    print(extract_paradata("data/process/17_BNS3593/17_BNS3593_imp.xmp", "data/process/17_BNS3593/17_BNS3593_proc.xmp"))
 
 
 

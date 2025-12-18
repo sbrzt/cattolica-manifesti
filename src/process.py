@@ -3,6 +3,8 @@
 import json
 import re
 from lxml import etree
+from pathlib import Path
+
 
 NS_MAP = {
     'x': 'adobe:ns:meta/',
@@ -18,7 +20,8 @@ NS_MAP = {
     'tiff': 'http://ns.adobe.com/tiff/1.0/'
 }
 
-def extract_xmp_data(imp_file_path, proc_file_path):
+
+def extract_paradata(imp_file_path, proc_file_path):
     with open(imp_file_path, 'rb') as f:
         imp_tree = etree.parse(f)
     with open(proc_file_path, 'rb') as f:
@@ -35,17 +38,25 @@ def extract_xmp_data(imp_file_path, proc_file_path):
             history.append(event)
             seen_ids.add(event_key)
     data = {
-        'document_id': proc_root.xpath('xmpMM:DocumentID/text()', namespaces=NS_MAP)[0],
-        'original_document_id': proc_root.xpath('xmpMM:OriginalDocumentID/text()', namespaces=NS_MAP)[0],
-        'instance_id': proc_root.xpath('xmpMM:InstanceID/text()', namespaces=NS_MAP)[0],
-        'acquisition_date': proc_root.xpath('exif:DateTimeOriginal/text()', namespaces=NS_MAP)[0],
-        'create_date': proc_root.xpath('xmp:CreateDate/text()', namespaces=NS_MAP)[0],
-        'hardware': proc_root.xpath('tiff:Model/text()', namespaces=NS_MAP)[0],
-        'serial_number': proc_root.xpath('aux:SerialNumber/text()', namespaces=NS_MAP)[0],
-        'dpi': proc_root.xpath('tiff:XResolution/text()', namespaces=NS_MAP)[0],
-        'width': proc_root.xpath('exif:PixelXDimension/text()', namespaces=NS_MAP)[0],
-        'height': proc_root.xpath('exif:PixelYDimension/text()', namespaces=NS_MAP)[0],
-        'format': proc_root.xpath('dc:format/text()', namespaces=NS_MAP)[0],
+        'id': Path(proc_file_path).parts[-2],
+        'document_id': _get_val(proc_root, 'xmpMM:DocumentID/text()')[0],
+        'original_document_id': _get_val(proc_root, 'xmpMM:OriginalDocumentID/text()')[0],
+        'instance_id': _get_val(proc_root, 'xmpMM:InstanceID/text()')[0],
+        'creation_date': _get_val(proc_root, 'xmp:CreateDate/text()')[0],
+        'modify_date': _get_val(proc_root, 'xmp:ModifyDate/text()')[0],
+        'metadata_date': _get_val(proc_root, 'xmp:MetadataDate/text()')[0],
+        'tool': _get_val(proc_root, 'xmp:CreatorTool/text()')[0],
+        'manufacturer': _get_val(proc_root, 'tiff:Make/text()')[0],
+        'device': _get_val(proc_root, 'tiff:Model/text()')[0],
+        'img_resolution_width': _get_val(proc_root, 'tiff:XResolution/text()')[0],
+        'img_resolution_height': _get_val(proc_root, 'tiff:YResolution/text()')[0],
+        'img_resolution_unit': _get_val(proc_root, 'tiff:ResolutionUnit/text()')[0],
+        'img_width': _get_val(proc_root, 'exif:PixelXDimension/text()')[0],
+        'img_height': _get_val(proc_root, 'exif:PixelYDimension/text()')[0],
+        'format': _get_val(proc_root, 'dc:format/text()')[0],
+        'exposure_time': _get_val(proc_root, 'exif:ExposureTime/text()')[0],
+        'aperture': _get_val(proc_root, 'exif:FNumber/text()')[0],
+        'iso': proc_root.xpath('exif:ISOSpeedRatings/rdf:Seq/rdf:li/text()', namespaces=NS_MAP)[0],
         'parameters': _extract_parameters(proc_root),
         'history': json.dumps(history)
     }
@@ -76,11 +87,20 @@ def _extract_parameters(tree):
         'photoshop'
     ]
     parameters = {}
+    for attr_name, attr_value in tree.attrib.items():
+        if any(ns_uri in attr_name for ns_uri in NS_MAP.values()):
+            tag_name_raw = attr_name.split('}')[-1]
+            for prefix in ['crs', 'exif', 'aux', 'photoshop', 'tiff']:
+                if NS_MAP[prefix] in attr_name:
+                    tag_name = _to_snake_case(tag_name_raw)
+                    parameters[tag_name] = attr_value
     for child in tree.getchildren():
         tag = child.tag
         if any(ns in tag for ns in param):
             tag_name = _to_snake_case(tag.split('}')[-1])           
-            parameters[tag_name] = _extract_node_content(child)
+            content = _extract_node_content(child)
+            if content:
+                parameters[tag_name] = content
     return json.dumps(parameters)
 
 
@@ -102,3 +122,13 @@ def _extract_node_content(node):
                 res[child_name] = _extract_node_content(child)
         return res if res else None
     return node.text.strip() if node.text else None
+
+
+def _get_val(node, query):
+    prefix, tag = query.split(':')
+    tag = tag.replace('/text()', '')
+    for attr_key, attr_value in node.attrib.items():
+        if attr_key.endswith(tag):
+            return [attr_value]
+    res = node.xpath(f'./{prefix}:{tag}/text()', namespaces=NS_MAP)
+    return res if res else [None]
