@@ -1,0 +1,72 @@
+index,image_id,id,title,type,related_to,work_dimension_height,work_dimension_width,dimension_unit,date,subject,authors,inventory_number,text_contents,notes,image_making_technique
+1,BNS3560; BNS3561,1_BNS3560,Carnaval d'Aoste,Manifesto,,70,50,cm,1985,colori,"Assessorato al Turismo, Regione Valle d'Aosta",,Il punto serigrafico - Leni (TO),,
+2,BNS4481; BNS4482,2_BNS4482,Studio per Carnaval d'Aoste,Progetto,1_BNS3560,99,50.5,cm,1984,progetto,,1336,"Assessorato al Turismo, Regione Valle d'Aosta. Litografia ITLA - Aosta",Stampa serigrafica,Studi pennarello biro collages
+3,BNS4471; BNS4472,3_BNS4472,XXVII Esposizione Concorso dell'Artigianato tipico: le 4 stagioni,Manifesto,,48.5,68.5,cm,1980,uccelli,"Assessorato Industria e Commercio, Regione Valle d'Aosta",1337,,,
+4,BNS3566; BNS3567,4_BNS3567,984 Foire Millenaire de St. Ours,Manifesto,,70,50,cm,1884,sagome,"Assessorato Industria e Commercio, Regione Valle d'Aosta",,,,
+5,BNS4477; BNS4478,5_BNS4478,Percorso esposizione ,Progetto percorso esposizione,,88,64,cm,1984-06-12,mappa,,,,,
+6,BNS3570; BNS3571,6_BNS3571,La Transjurane Desagrege,Manifesto,,50,70,cm,,uomo; pala,,1338,Typoffset,,
+7,BNS4475; BNS4476,7_BNS4476,I segni della fotografia,Manifesto,,94,68,cm,,gatto,,,Stampa serigrafica Studi Pennarello Biro,,
+8,BNS3574; BNS3575,8_BNS3575,Petit Marche des brocanteurs à Verres,Manifesto,,70,50,cm,1981,uomo,Azienda Autonoma di Verres ,1339,,,
+9,BNS3576; BNS3577,9_BNS3577,Foire d'ete,Manifesto,,69,48,cm,,animali,,1341,Industrie Grafiche Editoriali Musumeci - Quart (Aosta),,
+10,BNS3578; BNS3579,10_BNS3579,Studio per Foire d'ete,Progetto,9_BNS3577,100,50,cm,1981,animali,,,,Stampa offset con impronte in bassorilievo; cartolina stampa offset,Studi pennarello pastello
+11,BNS3580; BNS3581,11_BNS3581,12 quadri sulla guerra,Manifesto,,68,48.5,cm,,ancora,,,Stampa arti grafiche Roccia Torino,,
+12,BNS3582; BNS3583,12_BNS3583,Langages and communication in the city,Manifesto,,68,48,cm,1983,pianeta; braccia,"Cities Unies, UNESCO, CMIEB",1343,Arti Grafiche E. Duc,,
+13,BNS3588; BNS3589,13_BNS3589,Studio per Langages and communication in the city,Progetto,12_BNS3583,100,70,cm,1983,pianeta; braccia,,,,Stampa offset Diffusione internazionale; cartolina riduzione fotomeccanica,Studi matita tempera
+14,BNS3586; BNS3587,14_BNS3587,"Pekelin, boite music",Manifesto,,48,67,cm,1984,colori; animale,,,Arti Grafiche E. Duc,,
+15,BNS4481; BNS4482,15_BNS4482,Studio per Pekelin Boite Music Aosta,Progetto,14_BNS4482,99,50.5,cm,1983,colori,,1343,,Stampa offset,Studi matita biro pennarello
+16,BNS3590; BNS3591,16_BNS3591,Batezarestaurant ,Manifesto,,68,48,cm,,uomo; ombrello,,1345,Stabilimento litografico ferrero & C - romano c. ,,
+17,BNS3592; BNS3593,17_BNS3593,"Coppa Consiglio Valle d'Aosta, gara di fondo internazionale",Manifesto,,70,50,cm,1981,righe; tracce,"F.I.S.I ASIVA , Assessorato al Turismo, Regione Valle d'Aosta",1346,Stabilimento litografico ferrero & C - romano c. ,,
+18,BNS3594; BNS3595,18_BNS3595,Rock dancing discoteca,Manifesto,,70,50,cm,,chitarra,,1347,A. G. Duc Aosta,,
+19,BNS3596; BNS3597,19_BNS3597,La defensa ,Manifesto,,70,50,cm,1982,animale; puntini,"Assessorato all'istruzione pubblica, Regione Valle d'Aosta",1348,Imprimerie E. Duc - Aoste 1982,,
+20,BNS3598; BNS3599; BNS3500; BNS3501,,Grapus,Manifesto,,70,50,cm,,sagoma,,1349,Arti Grafiche E. Duc,,
+21,BNS3602; BNS3603,21_BNS3603,Congresso regionale del P.C.I,Manifesto,,87,61,cm,1983,logo,"Partito comunista italiano, Valle d'Aosta",,Graphic designer Franco Balan Pesando Litrografia,,
+22,BNS3604; BNS3605,22_BNS3605,Studio per Marcia Gran Paradiso Cogne,Progetto,,100,50,cm,1978,renna,,1355,,Stampa offset diffusione internazionale,Studi penna pastello biro matita
+23,BNS3606; BNS3607,23_BNS3607,Studio per Marcia Gran Paradiso Cogne,Progetto,,100,50,cm,1983,renna,,1354,,Stampa offset diffusione internazionale,Studi pennarello acrilico
+24,BNS3608; BNS3609,24_BNS3609,Studio per Marcia Gran Paradiso Cogne,Progetto,,100,50,cm,1980,renna,,1353,,Stampa offset diffusione internazionale,Studi pennarello acrilico
+25,BNS3610; BNS3611,25_BNS3611,Studio per Marcia Gran Paradiso Cogne,Progetto,,100,50,cm,1984,marcia,,1351,,Stampa offset diffusione internazionale,Studi matita acrilico pastello
+26,BNS3612; BNS3613,26_BNS3613,Studio per Festa dell'aria Aero Club Aosta,Progetto,,100,50,cm,1979,colline; aviatore,,1352,,Stampa offset diffusione internazionale,Studi pastello penna pennarello
+27,BNS3614; BNS3615,27_BNS3615,Studio per 977° Foire St-Ours Aosta,Progetto,,100,50,cm,1977,ombrello; bastone,,1361,,Stampa offset diffusione internazionale,
+28,BNS3616; BNS3617,28_BNS3617,Studio per 977° Foire St-Ours Aosta,Progetto,,100,50,cm,1976,figure,,,,Stampa offset diffusione internazionale; locandina stampa offset,Studi pastello 
+29,BNS3618; BNS3619,29_BNS3619,Studio per 977° Foire St-Ours Aosta,Progetto,30_BNS3621,100,50,cm,1979,figura; legno,"Assessorato Industria e Commercio, Regione Valle d'Aosta",1359,,Stampa offset diffusione internazionale; locandina stampa offset,Studi pastello 
+30,BNS3620; BNS3621,30_BNS3621,977° Foire St-Ours Aosta,Manifesto,,70,50,cm,1979,figura; legno,,1359,,,
+31,BNS3622; BNS3623,31_BNS3623,Studio per 984° Foire St-Ours Aosta,Progetto,,100,50,cm,1984,sagome,,,,Stampa offset diffusione internazionale; locandina stampa offset,Studi pastello 
+32,BNS3624; BNS3625,32_BNS3625,Studio per 4° Foire St-Ours Aosta,Progetto,,100,50,cm,1972,uomo; bastone; gallina,,,,Stampa offset Layout per testata inviata (1979),Riduzione fotomeccanica del manifesto
+33,BNS3626; BNS3627,33_BNS3627,Il pane,Progetto,,70,50,cm,1981,gallina,"Assessorato Industria e Commercio, Regione Valle d'Aosta",,,,
+34,BNS3628; BNS3629,34_BNS3629,28° Expo Artis. Antique,Progetto,,100,50,cm,1981,schizzi; matita,,1366,,,Studi matita pastello biro
+35,BNS3630; BNS3631,35_BNS3631,Meuble 1978,Manifesto,,70,50,cm,1978,legno,,,,,
+36,BNS3632; BNS3633,36_BNS3633,7° Esposition des dentelles,Manifesto,,69,50,cm,1972,volto; figure; animali,,,Franco Balan Tipo Offset Mesumeci Aosta,,
+37,BNS3634; BNS3635,37_BNS3635,7° Esposition des dentelles,Progetto,36_BNS3633,100,50,cm,1972,volto,,,,Stampa offset,Studi biro
+38,BNS3636; BNS3637,38_BNS3637,"Carnaval ""C"" Cento anni di Carnevale a Nizza",Manifesto,,70,50,cm,1984,profilo; onde,"Assessorato Industria e Commercio, Regione Valle d'Aosta",,,,
+39,BNS3638; BNS3639,39_BNS3639,Studio per  Centenaire Carnaval de Nice,Progetto,38_BNS3637,100,50,cm,1984,profilo; onde,,1367,,,Studio matita pennarello pastello
+40,BNS3640; BNS3641,40_BNS3641,Studio per Feta di patoue chatillon,Progetto,,100,50,cm,1982,figura; colori,,1369,,Stampa offset,
+41,BNS3642; BNS3643,41_BNS3643,Studio per Feta di salasse Aosta,Progetto,,100,50,cm,1970,montagna,,1368,,Stampa offset,
+42,BNS3644; BNS3645,42_BNS3645,Concerto Jazz,Manifesto,,70,50,cm,1969,musicisti,Azienda autonoma Soggiorno e turismo d'Aosta,1370,Franco Balan Tipo Offset Mesumeci Aosta,,
+43,BNS3646; BNS3647,43_BNS3647,Studio per mini rassegna musicali (ARCI),Progetto,,100,70,cm,1982,mani,,1371,,Stampa offset,Studi matita pastello
+44,BNS3648; BNS3649,44_BNS3649,Studio per 25° Assemblea regionale Chant Coral Aosta ,Progetto,,100,70,cm,1975,uccelli,,,,Stampa Offset,
+45,BNS3650; BNS3651,45_BNS3651,Studio per 29° Assemblea Chant Coral,Progetto,,100,70,cm,1979,sagoma; colori,,1378,,,
+46,BNS3652; BNS3653,46_BNS3653,Studio per 30° Assemblea Chant Coral Aosta ,Progetto,,100,70,cm,1980,castello,,,,Stampa Offset,
+47,BNS3654; BNS3655,47_BNS3655,Studio per Chant Coral ,Progetto,,100,70,cm,1984,sagome,,1375,,Stampa Offset,
+48,BNS3656; BNS3657,48_BNS3657,Studio per Autunno Rai Sede Reg. Valle d'Aosta,Progetto,,100,70,cm,1982,televisione,,1383,,Stampa Offset,Studi matita
+49,BNS3658; BNS3659,49_BNS3659,Festival internazionale film comico St-Vincent,Progetto,,100,70,cm,1981,mimo,,,,Non stampato,Studi matita pennarello
+50,BNS3660; BNS3661,50_BNS3661,Studio per Theatre romantique polonais,Progetto,,100,70,cm,1977,scarpa,,1380,,Stampa Offset,Studi pastello pennarello
+51,BNS4473; BNS4474,51_BNS4474,Studio per Education bilingue cities unies,Progetto,,100,70,cm,1972,chiavi,,1380,,Stampa Offset,Studi matita pennarello
+52,BNS3664; BNS3665,52_BNS3665,UNESCO 1981 International year for disabled people,Manifesto,,95.5,69,cm,1981,geometrie,,,,,
+53,BNS3666; BNS3667,53_BNS3667,"Studio per Campagna ""Sicurezza"" Comune di Aosta ",Progetto,,100,70,cm,1983,ombrello,Assessorato per la tutela dell'ambiente Aosta,1387,,,Studi pennarello biro collages
+54,BNS3668; BNS3669,54_BNS3669,"Studio per Campagna ""Sicurezza"" Comune di Aosta ",Progetto,,100,70,cm,1983,scritte,,1385,,Serigrafia,Studi matita
+55,BNS3670; BNS3671,55_BNS3671,Danger apprivoise,Manifesto,,69.5,50,cm,,mura,,,,,
+56,BNS3672; BNS3673,56_BNS3673,"Campagna ""Sicurezza"" Comune di Aosta ",Manifesto,,100,70,cm,,boccetta,,,,,
+57,BNS3674; BNS3675,57_BNS3675,"Studio per Campagna ""Sicurezza"" Comune di Aosta ",Progetto,57_BNS3673,100,70,cm,1983,boccetta,,1384,,Non stampato,Pastello collages 
+58,BNS3676; BNS3677,58_BNS3677,Studio per Campionati mondiali di BOB Breuil-Cervinia,Progetto,,100,70,cm,1975,forme,,,,Stampa offset diffusione internazionale,
+59,BNS3678; BNS3679,59_BNS3679,Studio per Fondo Coppa Cons. Valle,Progetto,,100,70,cm,1981,scii,,,,Stampa offset,
+60,BNS3680; BNS3681,60_BNS3681,Studio per 30° Anniversario AVIS Aosta,Progetto,,100,70,cm,1979,chiavi,,1391,,Stampa offset,
+61,BNS3682; BNS3683,61_BNS3683,Studio per Comptoir de Martigny,Progetto,,100,70,cm,1964,croce,,,"Stampa tipografica linoleografia, Imprimeria Marguerettaz - Aosta",,
+62,BNS3684; BNS3685,62_BNS3685,Fondo/Coppa Consiglio della Valle d'Aosta,Manifesto,,68,48,cm,1981,strisce; colori,,1393,,,
+63,BNS3686; BNS3687,63_BNS3687,Studio per Affiches Politiques Poloinaises Aosta,Progetto,,100,70,cm,1982,sagoma,,,,Stampa offset,Studi matita pennarello
+64,BNS3688; BNS3689,64_BNS3689,Studio per Campagna promozionale Comune di Aosta,Progetto,,100,70,cm,1979,casa; fumo,,,,Stampa offset,Studi pennarello
+65,BNS3690; BNS3691,65_BNS3691,Studio per 19° Exposition typique Valle d'Aosta,Progetto,,100,70,cm,1972,uomo; gallina; cane,,1395,"Stampa Offset, Tipo-Offset Musumeci Aosta",Stampa offset,
+66,BNS3692; BNS3693,66_BNS3693,Studio per Voyageurs Val d'Aoste,Progetto,,100,70,cm,1981,profilo,,1396,,,Studi matita pennarello acrilico
+67,BNS4491; BNS4492,67_BNS4492,Studio per Convegno ANPI St-Vincent,Progetto,,100,70,cm,1980,mano,,,"Stampa Offset, Arti Grafiche Jasillo Roma",,
+68,BNS3696; BNS3697,68_BNS3697,Studio per Homme Civilisation Monta-Gnarde,Progetto,,100,70,cm,1976,lupo,,1400,"Stampa Offset, Tipo-Offset Musumeci Aosta",Stampa offset diffusione estero,
+69,BNS3698; BNS3699,69_BNS3699,Studio per P.N.G.P. Rassegna di progetti,Progetto,,100,70,cm,1983,matita,,,"Stampa Offset, Tipo-Offset Musumeci Aosta",Stampa Offset,
+70,BNS3700; BNS3701,70_BNS3701,Studio per Editoria per libri e riviste,Progetto,,100,70,cm,1977/1983,chiavi,,,,Layout e stampati tecniche diverse,
+71,BNS4496; BNS4447,71_BNS4447,Studio per congresso regionale FNLE CGIL Aosta,Progetto,,100,70,cm,1981,corna,,,,Stampa offset,

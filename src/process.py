@@ -2,23 +2,21 @@
 
 import json
 import re
+import pandas as pd
+from config import(
+    NS_MAP,
+    ROOT,
+    EVENT_KEY,
+    EVENT_DATE,
+    PARAMS_NS_MAP
+)
 from lxml import etree
 from pathlib import Path
 
 
-NS_MAP = {
-    'x': 'adobe:ns:meta/',
-    'aux': 'http://ns.adobe.com/exif/1.0/aux/',
-    'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-    'xmp': 'http://ns.adobe.com/xap/1.0/',
-    'xmpMM': 'http://ns.adobe.com/xap/1.0/mm/',
-    'dc': 'http://purl.org/dc/elements/1.1/',
-    'crs': 'http://ns.adobe.com/camera-raw-settings/1.0/',
-    'exif': 'http://ns.adobe.com/exif/1.0/',
-    'photoshop': 'http://ns.adobe.com/photoshop/1.0/',
-    'stEvt': 'http://ns.adobe.com/xap/1.0/sType/ResourceEvent#',
-    'tiff': 'http://ns.adobe.com/tiff/1.0/'
-}
+def extract_metadata(file_path):
+    df = pd.read_csv(file_path)
+    return df
 
 
 def extract_paradata(imp_file_path, proc_file_path):
@@ -26,14 +24,14 @@ def extract_paradata(imp_file_path, proc_file_path):
         imp_tree = etree.parse(f)
     with open(proc_file_path, 'rb') as f:
         proc_tree = etree.parse(f)
-    imp_root = imp_tree.xpath('//rdf:Description', namespaces=NS_MAP)[0]
-    proc_root = proc_tree.xpath('//rdf:Description', namespaces=NS_MAP)[0]
+    imp_root = imp_tree.xpath(ROOT, namespaces=NS_MAP)[0]
+    proc_root = proc_tree.xpath(ROOT, namespaces=NS_MAP)[0]
     imp_history = _extract_history(imp_root)
     proc_history = _extract_history(proc_root)
     seen_ids = set()
     history = []
     for event in imp_history + proc_history:
-        event_key = (event['instance_id'], event['when'])
+        event_key = (event[EVENT_KEY], event[EVENT_DATE])
         if event_key not in seen_ids:
             history.append(event)
             seen_ids.add(event_key)
@@ -80,12 +78,6 @@ def _extract_history(tree):
 
 
 def _extract_parameters(tree):
-    param = [
-        'camera-raw-settings',
-        'exif',
-        'aux',
-        'photoshop'
-    ]
     parameters = {}
     for attr_name, attr_value in tree.attrib.items():
         if any(ns_uri in attr_name for ns_uri in NS_MAP.values()):
