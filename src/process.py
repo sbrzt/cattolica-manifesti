@@ -8,7 +8,34 @@ from config import(
     ROOT,
     EVENT_KEY,
     EVENT_DATE,
-    PARAMS_NS_MAP
+    PARAMS_NS_MAP,
+    DOCUMENT_ID_PATH,
+    ORIGINAL_DOCUMENT_ID_PATH,
+    INSTANCE_ID_PATH,
+    CREATION_DATE_PATH,
+    MODIFY_DATE_PATH,
+    METADATA_DATE_PATH,
+    TOOL_PATH,
+    MANUFACTURER_PATH,
+    DEVICE_PATH,
+    IMG_RES_WIDTH_PATH,
+    IMG_RES_HEIGHT_PATH,
+    IMG_RES_UNIT_PATH,
+    IMG_WIDTH_PATH,
+    IMG_HEIGHT_PATH,
+    FORMAT_PATH,
+    EXPOSURE_TIME_PATH,
+    APERTURE_PATH,
+    ISO_PATH_PATH,
+    LICENSE_PATH,
+    FOCAL_LENGTH_PATH,
+    HISTORY_ITEMS_PATH,
+    HISTORY_ACTION_PATH,
+    HISTORY_INSTANCE_ID_PATH,
+    HISTORY_WHEN_PATH,
+    HISTORY_SOFTWARE_PATH,
+    HISTORY_PARAMETERS_PATH,
+    SEQUENCE_NODE_PATH
 )
 from lxml import etree
 from pathlib import Path
@@ -37,24 +64,26 @@ def extract_paradata(imp_file_path, proc_file_path):
             seen_ids.add(event_key)
     data = {
         'id': Path(proc_file_path).parts[-2],
-        'document_id': _get_val(proc_root, 'xmpMM:DocumentID/text()')[0],
-        'original_document_id': _get_val(proc_root, 'xmpMM:OriginalDocumentID/text()')[0],
-        'instance_id': _get_val(proc_root, 'xmpMM:InstanceID/text()')[0],
-        'creation_date': _get_val(proc_root, 'xmp:CreateDate/text()')[0],
-        'modify_date': _get_val(proc_root, 'xmp:ModifyDate/text()')[0],
-        'metadata_date': _get_val(proc_root, 'xmp:MetadataDate/text()')[0],
-        'tool': _get_val(proc_root, 'xmp:CreatorTool/text()')[0],
-        'manufacturer': _get_val(proc_root, 'tiff:Make/text()')[0],
-        'device': _get_val(proc_root, 'tiff:Model/text()')[0],
-        'img_resolution_width': _get_val(proc_root, 'tiff:XResolution/text()')[0],
-        'img_resolution_height': _get_val(proc_root, 'tiff:YResolution/text()')[0],
-        'img_resolution_unit': _get_val(proc_root, 'tiff:ResolutionUnit/text()')[0],
-        'img_width': _get_val(proc_root, 'exif:PixelXDimension/text()')[0],
-        'img_height': _get_val(proc_root, 'exif:PixelYDimension/text()')[0],
-        'format': _get_val(proc_root, 'dc:format/text()')[0],
-        'exposure_time': _get_val(proc_root, 'exif:ExposureTime/text()')[0],
-        'aperture': _get_val(proc_root, 'exif:FNumber/text()')[0],
-        'iso': proc_root.xpath('exif:ISOSpeedRatings/rdf:Seq/rdf:li/text()', namespaces=NS_MAP)[0],
+        'document_id': _get_val(proc_root, DOCUMENT_ID_PATH)[0],
+        'original_document_id': _get_val(proc_root, ORIGINAL_DOCUMENT_ID_PATH)[0],
+        'instance_id': _get_val(proc_root, INSTANCE_ID_PATH)[0],
+        'creation_date': _get_val(proc_root, CREATION_DATE_PATH)[0],
+        'modify_date': _get_val(proc_root, MODIFY_DATE_PATH)[0],
+        'metadata_date': _get_val(proc_root, METADATA_DATE_PATH)[0],
+        'tool': _get_val(proc_root, TOOL_PATH)[0],
+        'manufacturer': _get_val(proc_root, MANUFACTURER_PATH)[0],
+        'device': _get_val(proc_root, DEVICE_PATH)[0],
+        'img_resolution_width': _get_val(proc_root, IMG_RES_WIDTH_PATH)[0],
+        'img_resolution_height': _get_val(proc_root, IMG_RES_HEIGHT_PATH)[0],
+        'img_resolution_unit': _get_val(proc_root, IMG_RES_UNIT_PATH)[0],
+        'img_width': _get_val(proc_root, IMG_WIDTH_PATH)[0],
+        'img_height': _get_val(proc_root, IMG_HEIGHT_PATH)[0],
+        'format': _get_val(proc_root, FORMAT_PATH)[0],
+        'exposure_time': _get_val(proc_root, EXPOSURE_TIME_PATH)[0],
+        'aperture': _get_val(proc_root, APERTURE_PATH)[0],
+        'iso': proc_root.xpath(ISO_PATH_PATH, namespaces=NS_MAP)[0],
+        'focal_length': _get_val(proc_root, FOCAL_LENGTH_PATH)[0],
+        'license': LICENSE_PATH,
         'parameters': _extract_parameters(proc_root),
         'history': json.dumps(history)
     }
@@ -63,14 +92,14 @@ def extract_paradata(imp_file_path, proc_file_path):
 
 def _extract_history(tree):
     history_list = []
-    items = tree.xpath('xmpMM:History/rdf:Seq/rdf:li', namespaces=NS_MAP)
+    items = tree.xpath(HISTORY_ITEMS_PATH, namespaces=NS_MAP)
     for item in items:
         event = {
-            'action': item.xpath('stEvt:action/text()', namespaces=NS_MAP),
-            'instance_id': item.xpath('stEvt:instanceID/text()', namespaces=NS_MAP),
-            'when': item.xpath('stEvt:when/text()', namespaces=NS_MAP),
-            'software': item.xpath('stEvt:softwareAgent/text()', namespaces=NS_MAP),
-            'parameters': item.xpath('stEvt:parameters/text()', namespaces=NS_MAP)
+            'action': item.xpath(HISTORY_ACTION_PATH, namespaces=NS_MAP),
+            'instance_id': item.xpath(HISTORY_ITEMS_PATH, namespaces=NS_MAP),
+            'when': item.xpath(HISTORY_WHEN_PATH, namespaces=NS_MAP),
+            'software': item.xpath(HISTORY_SOFTWARE_PATH, namespaces=NS_MAP),
+            'parameters': item.xpath(HISTORY_PARAMETERS_PATH, namespaces=NS_MAP)
         }
         event = {key: value[0] if value else None for key, value in event.items()}
         history_list.append(event)
@@ -78,11 +107,12 @@ def _extract_history(tree):
 
 
 def _extract_parameters(tree):
+    param = PARAMS_NS_MAP.values()
     parameters = {}
     for attr_name, attr_value in tree.attrib.items():
         if any(ns_uri in attr_name for ns_uri in NS_MAP.values()):
             tag_name_raw = attr_name.split('}')[-1]
-            for prefix in ['crs', 'exif', 'aux', 'photoshop', 'tiff']:
+            for prefix in PARAMS_NS_MAP.keys():
                 if NS_MAP[prefix] in attr_name:
                     tag_name = _to_snake_case(tag_name_raw)
                     parameters[tag_name] = attr_value
@@ -104,7 +134,7 @@ def _to_snake_case(text):
 
 def _extract_node_content(node):
     if len(node.getchildren()) > 0:
-        seq = node.xpath('./rdf:Seq/rdf:li/text() | ./rdf:Alt/rdf:li/text()', namespaces=NS_MAP)
+        seq = node.xpath(SEQUENCE_NODE_PATH, namespaces=NS_MAP)
         if seq:
             return seq if len(seq) > 1 else seq[0]
         res = {}

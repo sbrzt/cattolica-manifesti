@@ -11,6 +11,7 @@ from config import (
     MERGING_KEY,
     OUTPUT_FILE_PATH
 )
+from src.tainacan_prep import data_prep
 from src.process import extract_metadata, extract_paradata
 
 
@@ -35,6 +36,7 @@ def main():
                 print(f"error {subdir}: {e}")
     df_paradata = pd.DataFrame(paradata_list)
     df = df_metadata.merge(df_paradata, how="inner", on=MERGING_KEY)
+    df = data_prep(df)
     df.to_csv(OUTPUT_FILE_PATH, index=False)
 
 
