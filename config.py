@@ -58,8 +58,9 @@ FILE_FORMAT = ".xmp"
 FILE_IMPORT_CODE = "_imp"
 FILE_PROCESSING_CODE = "_proc"
 MERGING_KEY = "id"
-OUTPUT_FILE_PATH = "tabella_balan.csv"
 
+OUTPUT_FILE_PATH = "dataset_balan.csv"
+OUTPUT_DB_FILE_PATH = "db_balan.csv"
 
 LABEL_SEPARATOR = "|"
 DB_KEY_PARAMETER = 'collection_key_yes'

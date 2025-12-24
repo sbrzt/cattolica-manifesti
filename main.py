@@ -9,7 +9,8 @@ from config import (
     FILE_IMPORT_CODE,
     FILE_PROCESSING_CODE,
     MERGING_KEY,
-    OUTPUT_FILE_PATH
+    OUTPUT_FILE_PATH,
+    OUTPUT_DB_FILE_PATH
 )
 from src.tainacan_prep import data_prep
 from src.process import extract_metadata, extract_paradata
@@ -36,8 +37,9 @@ def main():
                 print(f"error {subdir}: {e}")
     df_paradata = pd.DataFrame(paradata_list)
     df = df_metadata.merge(df_paradata, how="inner", on=MERGING_KEY)
-    df = data_prep(df)
     df.to_csv(OUTPUT_FILE_PATH, index=False)
+    df = data_prep(df)
+    df.to_csv(OUTPUT_DB_FILE_PATH, index=False)
 
 if __name__ == "__main__":
     main()
