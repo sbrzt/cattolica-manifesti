@@ -39,7 +39,5 @@ def main():
     df = data_prep(df)
     df.to_csv(OUTPUT_FILE_PATH, index=False)
 
-
-
 if __name__ == "__main__":
     main()

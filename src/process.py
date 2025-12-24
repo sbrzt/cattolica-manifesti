@@ -35,7 +35,8 @@ from config import(
     HISTORY_WHEN_PATH,
     HISTORY_SOFTWARE_PATH,
     HISTORY_PARAMETERS_PATH,
-    SEQUENCE_NODE_PATH
+    SEQUENCE_NODE_PATH,
+    LABELS
 )
 from lxml import etree
 from pathlib import Path
@@ -43,7 +44,9 @@ from pathlib import Path
 
 def extract_metadata(file_path):
     df = pd.read_csv(file_path)
-    return df
+    df["id"] = df.ind.astype(str).str.cat(df.assigned_id, sep="_")
+    df2 = df.drop(columns=["ind", "assigned_id"])
+    return df2
 
 
 def extract_paradata(imp_file_path, proc_file_path):
@@ -63,29 +66,29 @@ def extract_paradata(imp_file_path, proc_file_path):
             history.append(event)
             seen_ids.add(event_key)
     data = {
-        'id': Path(proc_file_path).parts[-2],
-        'document_id': _get_val(proc_root, DOCUMENT_ID_PATH)[0],
-        'original_document_id': _get_val(proc_root, ORIGINAL_DOCUMENT_ID_PATH)[0],
-        'instance_id': _get_val(proc_root, INSTANCE_ID_PATH)[0],
-        'creation_date': _get_val(proc_root, CREATION_DATE_PATH)[0],
-        'modify_date': _get_val(proc_root, MODIFY_DATE_PATH)[0],
-        'metadata_date': _get_val(proc_root, METADATA_DATE_PATH)[0],
-        'tool': _get_val(proc_root, TOOL_PATH)[0],
-        'manufacturer': _get_val(proc_root, MANUFACTURER_PATH)[0],
-        'device': _get_val(proc_root, DEVICE_PATH)[0],
-        'img_resolution_width': _get_val(proc_root, IMG_RES_WIDTH_PATH)[0],
-        'img_resolution_height': _get_val(proc_root, IMG_RES_HEIGHT_PATH)[0],
-        'img_resolution_unit': _get_val(proc_root, IMG_RES_UNIT_PATH)[0],
-        'img_width': _get_val(proc_root, IMG_WIDTH_PATH)[0],
-        'img_height': _get_val(proc_root, IMG_HEIGHT_PATH)[0],
-        'format': _get_val(proc_root, FORMAT_PATH)[0],
-        'exposure_time': _get_val(proc_root, EXPOSURE_TIME_PATH)[0],
-        'aperture': _get_val(proc_root, APERTURE_PATH)[0],
-        'iso': proc_root.xpath(ISO_PATH_PATH, namespaces=NS_MAP)[0],
-        'focal_length': _get_val(proc_root, FOCAL_LENGTH_PATH)[0],
-        'license': LICENSE_PATH,
-        'parameters': _extract_parameters(proc_root),
-        'history': json.dumps(history)
+        LABELS[0][0]: Path(proc_file_path).parts[-2],
+        LABELS[19][0]: _get_val(proc_root, DOCUMENT_ID_PATH)[0],
+        LABELS[20][0]: _get_val(proc_root, ORIGINAL_DOCUMENT_ID_PATH)[0],
+        LABELS[21][0]: _get_val(proc_root, INSTANCE_ID_PATH)[0],
+        LABELS[22][0]: _get_val(proc_root, CREATION_DATE_PATH)[0],
+        LABELS[23][0]: _get_val(proc_root, MODIFY_DATE_PATH)[0],
+        LABELS[24][0]: _get_val(proc_root, METADATA_DATE_PATH)[0],
+        LABELS[25][0]: _get_val(proc_root, TOOL_PATH)[0],
+        LABELS[26][0]: _get_val(proc_root, MANUFACTURER_PATH)[0],
+        LABELS[27][0]: _get_val(proc_root, DEVICE_PATH)[0],
+        LABELS[28][0]: _get_val(proc_root, IMG_RES_WIDTH_PATH)[0],
+        LABELS[29][0]: _get_val(proc_root, IMG_RES_HEIGHT_PATH)[0],
+        LABELS[30][0]: _get_val(proc_root, IMG_RES_UNIT_PATH)[0],
+        LABELS[31][0]: _get_val(proc_root, IMG_WIDTH_PATH)[0],
+        LABELS[32][0]: _get_val(proc_root, IMG_HEIGHT_PATH)[0],
+        LABELS[33][0]: _get_val(proc_root, FORMAT_PATH)[0],
+        LABELS[34][0]: _get_val(proc_root, EXPOSURE_TIME_PATH)[0],
+        LABELS[35][0]: _get_val(proc_root, APERTURE_PATH)[0],
+        LABELS[36][0]: proc_root.xpath(ISO_PATH_PATH, namespaces=NS_MAP)[0],
+        LABELS[37][0]: _get_val(proc_root, FOCAL_LENGTH_PATH)[0],
+        LABELS[38][0]: LICENSE_PATH,
+        LABELS[39][0]: _extract_parameters(proc_root),
+        LABELS[40][0]: json.dumps(history)
     }
     return data
 

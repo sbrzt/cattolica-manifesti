@@ -59,3 +59,180 @@ FILE_IMPORT_CODE = "_imp"
 FILE_PROCESSING_CODE = "_proc"
 MERGING_KEY = "id"
 OUTPUT_FILE_PATH = "tabella_balan.csv"
+
+
+LABEL_SEPARATOR = "|"
+DB_KEY_PARAMETER = 'collection_key_yes'
+STATUS_PRIVATE_PARAMETER = 'status_private'
+STATUS_PUBLIC_PARAMETER = 'status_public'
+RELATIONSHIP_PARAMETER = 'relationship'
+NUMERIC_PARAMETER = 'numeric'
+DATE_PARAMETER = 'date'
+TEXT_PARAMETER = 'text'
+
+LABELS = {
+    0: {
+        0: "id",
+        1: "Identificativo"
+        },
+    1: {
+        0: "title", 
+        1: "Titolo"
+        },
+    2: {
+        0: "type",
+        1: "Tipologia"
+        },
+    3: {
+        0: "date",
+        1: "Data di creazione"
+        },
+    4: {
+        0: "technique",
+        1: "Tecnica"
+        },
+    5: {
+        0: "work_dimension_height",
+        1: "Altezza"
+        },
+    6: {
+        0: "work_dimension_width",
+        1: "Larghezza"
+        },
+    7: {
+        0: "dimension_unit",
+        1: "Unità di misura"
+        },
+    8: {
+        0: "subject",
+        1: "Soggetto"
+        },
+    9: {
+        0: "contents",
+        1: "Contenuti"
+        },
+    10: {
+        0: "notes",
+        1: "Note"
+        },
+    11: {
+        0: "commissioner",
+        1: "Committente"
+        },
+    12: {
+        0: "photographer",
+        1: "Fotografo"
+        },
+    13: {
+        0: "graphic_designer",
+        1: "Designer"
+        },
+    14: {
+        0: "copywriter",
+        1: "Copy"
+        },
+    15: {
+        0: "related_to", 
+        1: "Lavori correlati"
+        },
+    16: {
+        0: "inventory_number",
+        1: "Numero di inventario"
+        },
+    17: {
+        0: "acquisition_resp",
+        1: "Responsabile dell'acquisizione"
+        },
+    18: {
+        0: "processing_resp",
+        1: "Responsabile del processamento"
+        },
+    19: {
+        0: "document_id",
+        1: "Identificativo della foto"
+        },
+    20: {
+        0: "original_document_id",
+        1: "Identificativo dell'originale"
+        },
+    21: {
+        0: "instance_id",
+        1: "Identificativo dell'esemplare"
+        },
+    22: {
+        0: "creation_date",
+        1: "Data di acquisizione"
+        },
+    23: {
+        0: "modify_date",
+        1: "Data di ultima modifica"
+        },
+    24: {
+        0: "metadata_date",
+        1: "Data di ultima metadatazione"
+        },
+    25: {
+        0: "tool",
+        1: "Software di processamento"
+        },
+    26: {
+        0: "manufacturer",
+        1: "Creatore dello strumento di acquisizione"
+        },
+    27: {
+        0: "device",
+        1: "Strumento di acquisizione"
+        },
+    28: {
+        0: "img_resolution_width",
+        1: "Risoluzione (larghezza)"
+        },
+    29: {
+        0: "img_resolution_height",
+        1: "Risoluzione (altezza)"
+        },
+    30: {
+        0: "img_resolution_unit",
+        1: "Unità di risoluzione"
+        },
+    31: {
+        0: "img_width",
+        1: "Larghezza dell'immagine"
+        },
+    32: {
+        0: "img_height",
+        1: "Altezza dell'immagine"
+        },
+    33: {
+        0: "format",
+        1: "Formato"
+        },
+    34: {
+        0: "exposure_time",
+        1: "Tempo di esposizione"
+        },
+    35: {
+        0: "aperture",
+        1: "Apertura"
+        },
+    36: {
+        0: "iso",
+        1: "ISO"
+        },
+    37: {
+        0: "focal_length",
+        1: "Fuoco"
+        },
+    38: {
+        0: "license",
+        1: "Licenza"
+        },
+    39: {
+        0: "parameters",
+        1: "Parametri"
+        },
+    40: {
+        0: "history",
+        1: "Cronologia"
+        }
+}
