@@ -1,4 +1,4 @@
-# process.py
+# src/process.py
 
 import json
 import re
@@ -43,6 +43,15 @@ from pathlib import Path
 
 
 def extract_metadata(file_path):
+    """Extracts and normalises descriptive metadata from a CSV file.
+
+    Args:
+        file_path (str): The path to the CSV file containing object metadata.
+
+    Returns:
+        pd.DataFrame: A cleaned DataFrame with a generated 'id' column created by 
+            concatenating the index and the assigned identifier.
+    """
     df = pd.read_csv(file_path)
     df["id"] = df.ind.astype(str).str.cat(df.assigned_id, sep="_")
     df2 = df.drop(columns=["ind", "assigned_id"])
@@ -50,6 +59,20 @@ def extract_metadata(file_path):
 
 
 def extract_paradata(imp_file_path, proc_file_path):
+    """Extracts technical paradata by integrating import and processing XMP files.
+
+    This function parses two XMP files, merges the edit history (eliminating 
+    duplicates based on instance ID and date), and maps technical values 
+    according to a series of configuration labels.
+
+    Args:
+        imp_file_path (str): Path to the import XMP file (_imp).
+        proc_file_path (str): Path to the processing XMP file (_proc).
+
+    Returns:
+        dict: A dictionary containing extracted paradata, mapped to labels defined 
+            in the configuration file "config.py".
+    """
     with open(imp_file_path, 'rb') as f:
         imp_tree = etree.parse(f)
     with open(proc_file_path, 'rb') as f:
@@ -94,6 +117,15 @@ def extract_paradata(imp_file_path, proc_file_path):
 
 
 def _extract_history(tree):
+    """Extracts the list of events from the xmpMM:History section in the XMP files.
+
+    Args:
+        tree (lxml.etree._Element): The root node containing the history.
+
+    Returns:
+        list[dict]: A list of dictionaries, each representing a history event 
+            (action, instance_id, when, software, parameters).
+    """
     history_list = []
     items = tree.xpath(HISTORY_ITEMS_PATH, namespaces=NS_MAP)
     for item in items:
@@ -110,6 +142,17 @@ def _extract_history(tree):
 
 
 def _extract_parameters(tree):
+    """Massively extracts technical settings and shooting parameters.
+
+    It scans both the XML attributes of the root node and the 
+    child nodes belonging to technical namespaces.
+
+    Args:
+        tree (lxml.etree._Element): The root node from the processing file.
+
+    Returns:
+        str: A JSON-formatted string containing all dumped technical parameters.
+    """
     param = PARAMS_NS_MAP.values()
     parameters = {}
     for attr_name, attr_value in tree.attrib.items():
@@ -130,12 +173,31 @@ def _extract_parameters(tree):
 
 
 def _to_snake_case(text):
+    """Converts a string from PascalCase to snake_case using regular expressions.
+
+    Args:
+        text (str): Original string (e.g., 'ProcessVersion').
+
+    Returns:
+        str: Converted string (e.g., 'process_version').
+    """
     strng = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', text)
     strng = re.sub('([a-z0-9])([A-Z])', r'\1_\2', strng).lower()
     return strng
 
 
 def _extract_node_content(node):
+    """Recursively extracts the content of a complex XML node.
+
+    Handles sequences, alternatives, and nested structures 
+    by transforming them into Python types (lists or dictionaries).
+
+    Args:
+        node (lxml.etree._Element): The node to be analyzed.
+
+    Returns:
+        Union[str, list, dict, None]: The processed content of the node.
+    """
     if len(node.getchildren()) > 0:
         seq = node.xpath(SEQUENCE_NODE_PATH, namespaces=NS_MAP)
         if seq:
@@ -150,6 +212,18 @@ def _extract_node_content(node):
 
 
 def _get_val(node, query):
+    """Retrieves a value by searching both XML attributes and child nodes.
+
+    This function resolves systematic discrepancies in XMP files where data 
+    may appear as attributes of the root node or as child nodes.
+
+    Args:
+        node (lxml.etree._Element): The root node to scan.
+        query (str): String in 'prefix:tag' format (e.g., 'tiff:Make').
+
+    Returns:
+        list: A list containing the value found or [None] if not present.
+    """
     prefix, tag = query.split(':')
     tag = tag.replace('/text()', '')
     for attr_key, attr_value in node.attrib.items():

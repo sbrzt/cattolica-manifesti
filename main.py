@@ -17,6 +17,23 @@ from src.process import extract_metadata, extract_paradata
 
 
 def main():
+    """Orchestrates the metadata extraction, merging, and Tainacan preparation workflow.
+
+    This function executes the following pipeline:
+    1. Loads descriptive metadata from a central CSV file.
+    2. Walks through the processing directory to locate pairs of XMP files 
+       (import and processing versions) for each item.
+    3. Extracts technical paradata from these XMP pairs, handling both attribute-based 
+       and node-based XML structures.
+    4. Merges the descriptive metadata with the technical paradata using a common 
+       identifier.
+    5. Saves a raw integrated dataset to a CSV file for archiving.
+    6. Transforms the merged data into a Tainacan-compatible format (handling 
+       labels, privacy status, and media paths) and saves the final CSV for publishing.
+
+    The workflow ensures that for every item, the complete digital lifecycle is preserved 
+    and formatted for repository import.
+    """
     df_metadata = extract_metadata(METADATA_FILE_PATH)
     paradata_list = []
     for subdir, dirs, files in os.walk(PROCESS_DIR_PATH):

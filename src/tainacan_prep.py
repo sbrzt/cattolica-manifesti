@@ -1,4 +1,4 @@
-# tainacan_prep.py
+# src/tainacan_prep.py
 
 import pandas as pd
 from config import (
@@ -8,23 +8,47 @@ from config import (
     STATUS_PRIVATE_PARAMETER,
     STATUS_PUBLIC_PARAMETER,
     TEXT_PARAMETER,
-    DATE_PARAMETER,
-    NUMERIC_PARAMETER
+    TEXT_PARAMETER,
+    NUMERIC_PARAMETER,
+    RELATIONSHIP_PARAMETER
 )
 
 
 def data_prep(data):
+    """Prepares a DataFrame for Tainacan CSV import by mapping technical labels.
+
+    This function performs two main tasks:
+    1. It generates a 'special_document' column containing relative paths to the 
+       image files based on the unique item ID.
+    2. It renames the DataFrame columns using a structured naming convention 
+       required by the Tainacan CSV importer. Each new header is constructed 
+       by joining the display label, the data type, and the 
+       privacy status using a specific separator.
+
+    The mapping follows the predefined indices in the `LABELS` configuration 
+    to ensure consistency between the extracted XMP paradata, the CSV metadata, 
+    and the final WordPress repository structure.
+
+    Args:
+        data (pd.DataFrame): The merged DataFrame containing both descriptive 
+            metadata from the CSV and technical paradata from XMP files.
+
+    Returns:
+        pd.DataFrame: A transformed DataFrame with headers formatted for 
+            Tainacan (e.g., 'Label|Text|Public') and the 'special_document' 
+            column for automated media association.
+    """
     data["special_document"] = "file:manifesti/" + data["id"] + ".jpg"
-    data["special_attachments"] = "metadata/" + data['id'] + "_imp.xmp; metadata/" + data['id'] + "_proc.xmp"
+    #data["special_attachments"] = "metadata/" + data['id'] + "_imp.xmp; metadata/" + data['id'] + "_proc.xmp"
     df = data.rename(columns={
-        LABELS[0][0]: LABEL_SEPARATOR.join([LABELS[0][1],DB_KEY_PARAMETER,STATUS_PRIVATE_PARAMETER]),
+        LABELS[0][0]: LABEL_SEPARATOR.join([LABELS[0][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
         LABELS[1][0]: LABEL_SEPARATOR.join([LABELS[1][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[2][0]: LABEL_SEPARATOR.join([LABELS[2][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
-        LABELS[3][0]: LABEL_SEPARATOR.join([LABELS[1][1],DATE_PARAMETER,STATUS_PUBLIC_PARAMETER]),
+        LABELS[3][0]: LABEL_SEPARATOR.join([LABELS[3][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[4][0]: LABEL_SEPARATOR.join([LABELS[4][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[5][0]: LABEL_SEPARATOR.join([LABELS[5][1],NUMERIC_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[6][0]: LABEL_SEPARATOR.join([LABELS[6][1],NUMERIC_PARAMETER,STATUS_PUBLIC_PARAMETER]),
-        LABELS[7][0]: LABEL_SEPARATOR.join([LABELS[7][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
+        LABELS[7][0]: LABEL_SEPARATOR.join([LABELS[7][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
         LABELS[8][0]: LABEL_SEPARATOR.join([LABELS[8][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[9][0]: LABEL_SEPARATOR.join([LABELS[9][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[10][0]: LABEL_SEPARATOR.join([LABELS[10][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
@@ -33,21 +57,21 @@ def data_prep(data):
         LABELS[13][0]: LABEL_SEPARATOR.join([LABELS[13][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[14][0]: LABEL_SEPARATOR.join([LABELS[14][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[15][0]: LABEL_SEPARATOR.join([LABELS[15][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
-        LABELS[16][0]: LABEL_SEPARATOR.join([LABELS[16][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
+        LABELS[16][0]: LABEL_SEPARATOR.join([LABELS[16][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
         LABELS[17][0]: LABEL_SEPARATOR.join([LABELS[17][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[18][0]: LABEL_SEPARATOR.join([LABELS[18][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[19][0]: LABEL_SEPARATOR.join([LABELS[19][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
         LABELS[20][0]: LABEL_SEPARATOR.join([LABELS[20][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
         LABELS[21][0]: LABEL_SEPARATOR.join([LABELS[21][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
-        LABELS[22][0]: LABEL_SEPARATOR.join([LABELS[22][1],DATE_PARAMETER,STATUS_PUBLIC_PARAMETER]),
-        LABELS[23][0]: LABEL_SEPARATOR.join([LABELS[23][1],DATE_PARAMETER,STATUS_PRIVATE_PARAMETER]),
-        LABELS[24][0]: LABEL_SEPARATOR.join([LABELS[24][1],DATE_PARAMETER,STATUS_PRIVATE_PARAMETER]),
+        LABELS[22][0]: LABEL_SEPARATOR.join([LABELS[22][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
+        LABELS[23][0]: LABEL_SEPARATOR.join([LABELS[23][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
+        LABELS[24][0]: LABEL_SEPARATOR.join([LABELS[24][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
         LABELS[25][0]: LABEL_SEPARATOR.join([LABELS[25][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[26][0]: LABEL_SEPARATOR.join([LABELS[26][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[27][0]: LABEL_SEPARATOR.join([LABELS[27][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
-        LABELS[28][0]: LABEL_SEPARATOR.join([LABELS[28][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
-        LABELS[29][0]: LABEL_SEPARATOR.join([LABELS[29][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
-        LABELS[30][0]: LABEL_SEPARATOR.join([LABELS[30][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),
+        LABELS[28][0]: LABEL_SEPARATOR.join([LABELS[28][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
+        LABELS[29][0]: LABEL_SEPARATOR.join([LABELS[29][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
+        LABELS[30][0]: LABEL_SEPARATOR.join([LABELS[30][1],TEXT_PARAMETER,STATUS_PRIVATE_PARAMETER]),
         LABELS[31][0]: LABEL_SEPARATOR.join([LABELS[31][1],NUMERIC_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[32][0]: LABEL_SEPARATOR.join([LABELS[32][1],NUMERIC_PARAMETER,STATUS_PUBLIC_PARAMETER]),
         LABELS[33][0]: LABEL_SEPARATOR.join([LABELS[33][1],TEXT_PARAMETER,STATUS_PUBLIC_PARAMETER]),

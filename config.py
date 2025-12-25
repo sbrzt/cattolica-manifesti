@@ -1,5 +1,15 @@
 # config.py
 
+"""
+Configuration file for XMP metadata extraction and Tainacan preparation.
+
+This module centralises all constants, XML namespaces, XPath expressions, 
+and metadata labels required to process descriptive metadata and paradata 
+and prepare them for Tainacan's automatic import.
+"""
+
+
+# XML Namespace Mapping for lxml XPath evaluations
 NS_MAP = {
     'x': 'adobe:ns:meta/',
     'aux': 'http://ns.adobe.com/exif/1.0/aux/',
@@ -13,6 +23,8 @@ NS_MAP = {
     'stEvt': 'http://ns.adobe.com/xap/1.0/sType/ResourceEvent#',
     'tiff': 'http://ns.adobe.com/tiff/1.0/'
 }
+
+# Namespaces to be included in the technical parameters dump
 PARAMS_NS_MAP = {
     'crs': 'camera-raw-settings',
     'exif': 'exif',
@@ -21,10 +33,7 @@ PARAMS_NS_MAP = {
     'tiff': 'tiff'
 }
 
-ROOT = '//rdf:Description'
-EVENT_KEY = 'instance_id'
-EVENT_DATE = 'when'
-
+# XPath expressions for single technical fields
 DOCUMENT_ID_PATH = 'xmpMM:DocumentID/text()'
 ORIGINAL_DOCUMENT_ID_PATH = 'xmpMM:OriginalDocumentID/text()'
 INSTANCE_ID_PATH = 'xmpMM:InstanceID/text()'
@@ -44,14 +53,22 @@ EXPOSURE_TIME_PATH = 'exif:ExposureTime/text()'
 APERTURE_PATH = 'exif:FNumber/text()'
 ISO_PATH_PATH = 'exif:ISOSpeedRatings/rdf:Seq/rdf:li/text()'
 FOCAL_LENGTH_PATH = 'exif:FocalLength/text()'
+
 LICENSE_PATH = 'https://creativecommons.org/licenses/by-nc-sa/4.0/'
+
+# XPath expressions for history
 HISTORY_ITEMS_PATH = 'xmpMM:History/rdf:Seq/rdf:li'
 HISTORY_ACTION_PATH = 'stEvt:action/text()'
 HISTORY_INSTANCE_ID_PATH = 'stEvt:instanceID/text()'
 HISTORY_WHEN_PATH = 'stEvt:when/text()'
 HISTORY_SOFTWARE_PATH = 'stEvt:softwareAgent/text()'
 HISTORY_PARAMETERS_PATH = 'stEvt:parameters/text()'
+
+# Recursive parsing constant for structured nodes
 SEQUENCE_NODE_PATH = './rdf:Seq/rdf:li/text() | ./rdf:Alt/rdf:li/text()'
+
+# File system and processing configuration
+ROOT = '//rdf:Description'
 PROCESS_DIR_PATH = "data/process"
 METADATA_FILE_PATH = "data/object/balan_objects.csv"
 FILE_FORMAT = ".xmp"
@@ -59,9 +76,15 @@ FILE_IMPORT_CODE = "_imp"
 FILE_PROCESSING_CODE = "_proc"
 MERGING_KEY = "id"
 
+# Event parameters
+EVENT_KEY = 'instance_id'
+EVENT_DATE = 'when'
+
+# Output configuration
 OUTPUT_FILE_PATH = "dataset_balan.csv"
 OUTPUT_DB_FILE_PATH = "db_balan.csv"
 
+# Tainacan CSV import syntax constants
 LABEL_SEPARATOR = "|"
 DB_KEY_PARAMETER = 'collection_key_yes'
 STATUS_PRIVATE_PARAMETER = 'status_private'
@@ -70,7 +93,6 @@ RELATIONSHIP_PARAMETER = 'relationship'
 NUMERIC_PARAMETER = 'numeric'
 DATE_PARAMETER = 'date'
 TEXT_PARAMETER = 'text'
-
 LABELS = {
     0: {
         0: "id",
@@ -94,11 +116,11 @@ LABELS = {
         },
     5: {
         0: "work_dimension_height",
-        1: "Altezza"
+        1: "Altezza (cm)"
         },
     6: {
         0: "work_dimension_width",
-        1: "Larghezza"
+        1: "Larghezza (cm)"
         },
     7: {
         0: "dimension_unit",
@@ -198,11 +220,11 @@ LABELS = {
         },
     31: {
         0: "img_width",
-        1: "Larghezza dell'immagine"
+        1: "Larghezza dell'immagine (pixel)"
         },
     32: {
         0: "img_height",
-        1: "Altezza dell'immagine"
+        1: "Altezza dell'immagine (pixel)"
         },
     33: {
         0: "format",
