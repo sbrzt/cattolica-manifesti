@@ -55,7 +55,7 @@ Il sistema processa una collezione di circa 800 manifesti digitalizzati. Combina
 
 ### Caratteristiche principali
 * ***Estrazione XMP***: Gestisce sistematicamente sia i file XMP strutturati con nodi XML figli sia quelli che utilizzano attributi nel nodo root.
-* ***Merge della cronologia***: Unifica la storia dei file `(xmpMM:History`) eliminando i duplicati tra i file di importazione (`_imp`) e processamento (`_proc`).
+* ***Merge della cronologia***: Unifica la storia dei file (`xmpMM:History`) eliminando i duplicati tra i file di importazione (`_imp`) e processamento (`_proc`).
 * ***Parsing ricorsivo***: Estrae strutture complesse come curve di tono e maschere di correzione in formato JSON.
 * ***Preparazione per Tainacan***: Formatta automaticamente le intestazioni delle colonne con una sintassi specifica (es. `Identificativo|text|status_private`) per l'importatore CSV di Tainacan.
 
