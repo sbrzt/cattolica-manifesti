@@ -12,7 +12,7 @@ from config import (
     OUTPUT_FILE_PATH,
     OUTPUT_DB_FILE_PATH
 )
-from src.tainacan_prep import data_prep
+from src.prep import data_prep
 from src.process import extract_metadata, extract_paradata
 
 
