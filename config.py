@@ -70,7 +70,7 @@ SEQUENCE_NODE_PATH = './rdf:Seq/rdf:li/text() | ./rdf:Alt/rdf:li/text()'
 # File system and processing configuration
 ROOT = '//rdf:Description'
 PROCESS_DIR_PATH = "data/process"
-METADATA_FILE_PATH = "data/object/balan_objects.csv"
+METADATA_FILE_PATH = "data/object/balan.csv"
 FILE_FORMAT = ".xmp"
 FILE_IMPORT_CODE = "_imp"
 FILE_PROCESSING_CODE = "_proc"
@@ -105,6 +105,10 @@ LABELS = {
     2: {
         0: "type",
         1: "Tipologia"
+        },
+    41: {
+        0: "category",
+        1: "Categoria"
         },
     3: {
         0: "date",
@@ -148,11 +152,11 @@ LABELS = {
         },
     13: {
         0: "graphic_designer",
-        1: "Designer"
+        1: "Grafico"
         },
     14: {
         0: "copywriter",
-        1: "Copy"
+        1: "Copywriter"
         },
     15: {
         0: "related_to", 

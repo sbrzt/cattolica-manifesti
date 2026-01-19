@@ -53,7 +53,8 @@ def extract_metadata(file_path):
             concatenating the index and the assigned identifier.
     """
     df = pd.read_csv(file_path)
-    df["id"] = df.ind.astype(str).str.cat(df.assigned_id, sep="_")
+    df["id"] = df.ind.astype(int).astype(str).str.cat(df.assigned_id, sep="_")
+    df["inventory_number"] = df["inventory_number"].astype("Int64").astype(str)
     df2 = df.drop(columns=["ind", "assigned_id"])
     return df2
 

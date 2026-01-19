@@ -13,7 +13,7 @@
     xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
    tiff:Make="NIKON CORPORATION"
    tiff:Model="NIKON D800E"
-   tiff:Orientation="8"
+   tiff:Orientation="1"
    exif:ExifVersion="0231"
    exif:ExposureTime="8/10"
    exif:ShutterSpeedValue="321928/1000000"
@@ -43,36 +43,36 @@
    exif:FocalPlaneXResolution="67122044/32768"
    exif:FocalPlaneYResolution="67122044/32768"
    exif:FocalPlaneResolutionUnit="3"
-   exif:DateTimeOriginal="2025-11-03T13:10:09.30"
+   exif:DateTimeOriginal="2025-11-03T13:10:00.70"
    xmp:CreatorTool="Ver.1.02"
-   xmp:ModifyDate="2025-11-03T13:10:09.30"
-   xmp:CreateDate="2025-11-03T13:10:09.30"
-   xmp:MetadataDate="2025-11-12T11:11:39+01:00"
+   xmp:ModifyDate="2025-11-03T13:10:00.70"
+   xmp:CreateDate="2025-11-03T13:10:00.70"
+   xmp:MetadataDate="2025-11-04T12:59:51+01:00"
    aux:SerialNumber="6019424"
    aux:LensInfo="140/10 240/10 28/10 28/10"
    aux:Lens="14.0-24.0 mm f/2.8"
    aux:LensID="146"
-   aux:ImageNumber="57047"
+   aux:ImageNumber="57045"
    aux:ApproximateFocusDistance="79/100"
-   photoshop:DateCreated="2025-11-03T13:10:09.30"
+   photoshop:DateCreated="2025-11-03T13:10:00.70"
    photoshop:SidecarForExtension="NEF"
    photoshop:EmbeddedXMPDigest="2AD1AC5BA3E424E6C7C1B8C3F9C2974A"
-   xmpMM:DocumentID="177D237E5DCB878F6FB01F7943D58B44"
-   xmpMM:OriginalDocumentID="177D237E5DCB878F6FB01F7943D58B44"
-   xmpMM:InstanceID="xmp.iid:6fc1dc4c-6e1d-3844-afad-57a5049f6eed"
+   xmpMM:DocumentID="4812E932B0CE066814BF9D891260EA11"
+   xmpMM:OriginalDocumentID="4812E932B0CE066814BF9D891260EA11"
+   xmpMM:InstanceID="xmp.iid:16763c64-b01f-5e46-94f3-42f5f5070f7f"
    dc:format="image/x-nikon-nef"
    crd:CameraProfile="Camera STANDARD"
    crd:LookName=""
-   crs:Version="17.2"
+   crs:Version="17.4"
    crs:ProcessVersion="15.4"
-   crs:WhiteBalance="Custom"
-   crs:Temperature="3000"
-   crs:Tint="+11"
-   crs:Exposure2012="+0.35"
-   crs:Contrast2012="+2"
+   crs:WhiteBalance="As Shot"
+   crs:Temperature="3350"
+   crs:Tint="+12"
+   crs:Exposure2012="0.00"
+   crs:Contrast2012="0"
    crs:Highlights2012="0"
    crs:Shadows2012="0"
-   crs:Whites2012="-8"
+   crs:Whites2012="0"
    crs:Blacks2012="0"
    crs:Texture="0"
    crs:Clarity2012="0"
@@ -132,8 +132,8 @@
    crs:ColorGradeGlobalHue="0"
    crs:ColorGradeGlobalSat="0"
    crs:ColorGradeGlobalLum="0"
-   crs:AutoLateralCA="1"
-   crs:LensProfileEnable="1"
+   crs:AutoLateralCA="0"
+   crs:LensProfileEnable="0"
    crs:LensManualDistortionAmount="0"
    crs:VignetteAmount="0"
    crs:DefringePurpleAmount="0"
@@ -142,7 +142,7 @@
    crs:DefringeGreenAmount="0"
    crs:DefringeGreenHueLo="40"
    crs:DefringeGreenHueHi="60"
-   crs:PerspectiveUpright="5"
+   crs:PerspectiveUpright="0"
    crs:PerspectiveVertical="0"
    crs:PerspectiveHorizontal="0"
    crs:PerspectiveRotate="0.0"
@@ -164,36 +164,8 @@
    crs:ToneCurveName2012="Linear"
    crs:CameraProfile="Adobe Standard"
    crs:CameraProfileDigest="CA4F221DEBD3C272C94F7C3624CF9A18"
-   crs:LensProfileSetup="LensDefaults"
-   crs:LensProfileName="Adobe (Nikon AF-S NIKKOR 14-24mm f/2.8G ED)"
-   crs:LensProfileFilename="NIKON D3X (Nikon FX 14-24mm f2.8 G ED) - RAW.lcp"
-   crs:LensProfileDigest="F1CD1D17DB104625E68F140EE09FFC50"
-   crs:LensProfileIsEmbedded="False"
-   crs:LensProfileDistortionScale="100"
-   crs:LensProfileVignettingScale="100"
-   crs:UprightVersion="151388160"
-   crs:UprightCenterMode="0"
-   crs:UprightCenterNormX="0.5"
-   crs:UprightCenterNormY="0.5"
-   crs:UprightFocalMode="0"
-   crs:UprightFocalLength35mm="35"
-   crs:UprightPreview="False"
-   crs:UprightGuidedDependentDigest="4D2887BC2EF93D2E51CF4C07EC99D3C2"
-   crs:UprightTransformCount="6"
-   crs:UprightTransform_5="1.017729735,0.011323443,-0.011301632,-0.005910370,1.032051327,-0.003872863,-0.005065218,0.022866763,1.000000000"
-   crs:UprightFourSegmentsCount="4"
-   crs:UprightFourSegments_0="0.115828873,0.104731018,0.916388477,0.109037610"
-   crs:UprightFourSegments_1="0.107443929,0.893681337,0.913618361,0.894674906"
-   crs:UprightFourSegments_2="0.138759839,0.065561497,0.131741953,0.918904959"
-   crs:UprightFourSegments_3="0.867778101,0.063619028,0.875078321,0.918279487"
    crs:HasSettings="True"
-   crs:CropTop="0.016614"
-   crs:CropLeft="0.073908"
-   crs:CropBottom="0.991693"
-   crs:CropRight="0.931635"
-   crs:CropAngle="0"
-   crs:CropConstrainToWarp="0"
-   crs:HasCrop="True"
+   crs:HasCrop="False"
    crs:AlreadyApplied="False">
    <exif:ISOSpeedRatings>
     <rdf:Seq>
@@ -210,15 +182,9 @@
     <rdf:Seq>
      <rdf:li
       stEvt:action="saved"
-      stEvt:instanceID="xmp.iid:089c8762-ddaa-d54b-aeaf-4f5793021c0e"
+      stEvt:instanceID="xmp.iid:16763c64-b01f-5e46-94f3-42f5f5070f7f"
       stEvt:when="2025-11-04T12:59:51+01:00"
       stEvt:softwareAgent="Adobe Photoshop Camera Raw 17.4 (Windows)"
-      stEvt:changed="/metadata"/>
-     <rdf:li
-      stEvt:action="saved"
-      stEvt:instanceID="xmp.iid:6fc1dc4c-6e1d-3844-afad-57a5049f6eed"
-      stEvt:when="2025-11-12T11:11:39+01:00"
-      stEvt:softwareAgent="Adobe Photoshop Camera Raw 17.2 (Windows)"
       stEvt:changed="/metadata"/>
     </rdf:Seq>
    </xmpMM:History>
@@ -251,6 +217,11 @@
      <rdf:li>-1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000, -1.000000</rdf:li>
     </rdf:Seq>
    </crs:PointColors>
+   <crs:ColorVariance>
+    <rdf:Seq>
+     <rdf:li>-50.000000</rdf:li>
+    </rdf:Seq>
+   </crs:ColorVariance>
    <crs:Look>
     <rdf:Description
      crs:Name="Adobe Color"
@@ -267,7 +238,7 @@
     </crs:Group>
     <crs:Parameters>
      <rdf:Description
-      crs:Version="17.2"
+      crs:Version="17.4"
       crs:ProcessVersion="15.4"
       crs:ConvertToGrayscale="False"
       crs:CameraProfile="Adobe Standard"
