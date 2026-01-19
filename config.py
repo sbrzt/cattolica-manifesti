@@ -70,7 +70,7 @@ SEQUENCE_NODE_PATH = './rdf:Seq/rdf:li/text() | ./rdf:Alt/rdf:li/text()'
 # File system and processing configuration
 ROOT = '//rdf:Description'
 PROCESS_DIR_PATH = "data/process"
-METADATA_FILE_PATH = "data/object/balan.csv"
+METADATA_FILE_PATH = "data/object/input.csv"
 FILE_FORMAT = ".xmp"
 FILE_IMPORT_CODE = "_imp"
 FILE_PROCESSING_CODE = "_proc"
@@ -81,8 +81,8 @@ EVENT_KEY = 'instance_id'
 EVENT_DATE = 'when'
 
 # Output configuration
-OUTPUT_FILE_PATH = "dataset_balan.csv"
-OUTPUT_DB_FILE_PATH = "db_balan.csv"
+OUTPUT_FILE_PATH = "data/dataset.csv"
+OUTPUT_DB_FILE_PATH = "data/db.csv"
 
 # Tainacan CSV import syntax constants
 LABEL_SEPARATOR = "|"
