@@ -20,7 +20,7 @@ This system processes a collection of approximately 800 digitized posters. It co
 * `main.py`: Pipeline orchestrator.
 * `config.py`: Centralised configuration for namespaces, XPaths, and labels.
 * `src/process.py`: Specialised XMP extraction engine.
-* `src/tainacan_prep.py`: Formatting logic for Tainacan integration.
+* `src/prep.py`: Formatting logic for Tainacan integration.
 
 ### Usage
 This project relies on [uv](https://github.com/astral-sh/uv) for fast and reliable dependency management.
@@ -63,7 +63,7 @@ Il sistema processa una collezione di circa 800 manifesti digitalizzati. Combina
 * `main.py`: Orchestratore del processo.
 * `config.py`: Configurazione centralizzata per namespace, XPath, e etichette.
 * `src/process.py`: Engine di estrazione di metadati e paradati da file XMP e CSV.
-* `src/tainacan_prep.py`: Logica di formattazione per l'integrazione con Tainacan.
+* `src/prep.py`: Logica di formattazione per l'integrazione con Tainacan.
 
 ### Uso
 Questo progetto utilizza [uv](https://github.com/astral-sh/uv) per una gestione rapida e affidabile delle dipendenze.
