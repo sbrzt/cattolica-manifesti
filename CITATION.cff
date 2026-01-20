@@ -1,0 +1,23 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Cattolica Manifesti Integrator
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Sebastian
+    family-names: Barzaghi
+    email: sebastian.barzaghi2@unibo.it
+    affiliation: University of Bologna
+    orcid: 'https://orcid.org/0000-0002-0799-1527'
+repository-code: 'https://github.com/sbrzt/cattolica-manifesti'
+abstract: >-
+  This software automates the integration of descriptive
+  metadata and technical paradata extracted from XMP files
+  for the management of a digital poster archive.
+license: ISC
+version: 0.1.0
+date-released: '2026-01-20'

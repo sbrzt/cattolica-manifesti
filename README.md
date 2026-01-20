@@ -1,4 +1,7 @@
-# Cattolica Manifesti
+# Cattolica Manifesti Integrator
+
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 
 🇺🇸: This project automates the integration of descriptive metadata and technical paradata extracted from XMP files for the management of a digital poster archive on WordPress via the Tainacan plugin.
 
